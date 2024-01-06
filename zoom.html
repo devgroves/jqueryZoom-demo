@@ -37,7 +37,7 @@
 			 $('#ex2').zoom({ zoomLevel: 2 });
 		  $('#ex3').zoom({ magnify: 1.5 });
 			 $('#ex4').zoom({ on:'click' });			 
-			// $('#ex4').zoom({ on:'toggle'});
+			$('#ex5').zoom({ on:'grab'});
 		});
 	</script>
 </head>
@@ -48,15 +48,19 @@
 	</span>
 	  <span class='zoom' id='ex2' style="top:50px;">
 		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
-		<p>Grab</p>
+		<p>Zoom Level 2</p>
 	</span> 
 	<span class='zoom' id='ex3'style="top:30px;">
 		<img src='daisy.jpg' width='555' height='320' alt='Daisy on the Ohoopee'/>
-		<p>Click to activate</p>
+		<p>Magnify to 1.5</p>
 	</span>
 	<span class='zoom' id='ex4'style="top:30px;">
 		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
 		<p>Click to toggle</p>
+	</span>
+	<span class='zoom' id='ex5'style="top:30px;">
+		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
+		<p>On Grab</p>
 	</span> 
 </body>
 </html>
