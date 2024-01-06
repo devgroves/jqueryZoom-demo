@@ -1,66 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset='utf-8'/>
+	<meta charset='utf-8' />
 	<title>jQuery Zoom Demo</title>
 	<style>
 		/* styles unrelated to zoom */
-		* { border:0; margin:0; padding:0; }
-		p { position:absolute; top:3px; right:28px; color:#555; font:bold 13px/1 sans-serif;}
+		* {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		p {
+			position: absolute;
+			top: 3px;
+			right: 28px;
+			color: #555;
+			font: bold 13px/1 sans-serif;
+		}
+
 		.zoom {
-			display:inline-block;
+			display: inline-block;
 			position: relative;
 		}
+
 		/* magnifying glass icon */
 		.zoom:after {
-			content:'';
-			display:block; 
-			width:33px; 
-			height:33px; 
-			position:absolute; 
-			top:0;
-			right:0;
-			background:url(icon.png);
+			content: '';
+			display: block;
+			width: 33px;
+			height: 33px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url(icon.png);
 		}
+
 		.zoom img {
 			display: block;
 		}
-		.zoom img::selection { background-color: transparent; }
-		#ex2 img:hover { cursor: url(grab.cur), default; }
-		#ex2 img:active { cursor: url(grabbed.cur), default; }
+
+		.zoom img::selection {
+			background-color: transparent;
+		}
+
+		#ex2 img:hover {
+			cursor: url(grab.cur), default;
+		}
+
+		#ex2 img:active {
+			cursor: url(grabbed.cur), default;
+		}
 	</style>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script src='jquery.zoom.js'></script>
 	<script>
-		$(document).ready(function(){
-			 $('#ex1').zoom();
-			 $('#ex2').zoom({ zoomLevel: 2 });
-		  $('#ex3').zoom({ magnify: 1.5 });
-			 $('#ex4').zoom({ on:'click' });			 
-			$('#ex5').zoom({ on:'grab'});
+		$(document).ready(function () {
+			$('#ex1').zoom();
+			$('#ex2').zoom({ zoomLevel: 2 });
+			$('#ex3').zoom({ magnify: 1.5 });
+			$('#ex4').zoom({ on: 'click' });
+			$('#ex5').zoom({
+				on: 'grab',
+				onZoomIn: function () {
+					console.log('Zoomed In!');
+
+				},
+
+				onZoomOut: function () {
+
+					console.log('Zoomed Out!');
+
+				}
+			});
 		});
 	</script>
 </head>
+
 <body>
 	<span class='zoom' id='ex1' style="top:20px;">
-		<img src='bike1.jpg' width='555' height='320' alt='Daisy on the Ohoopee'/>
+		<img src='bike1.jpg' width='555' height='320' alt='Daisy on the Ohoopee' />
 		<p style="color: white;">Hover</p>
 	</span>
-	  <span class='zoom' id='ex2' style="top:50px;">
-		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
+	<span class='zoom' id='ex2' style="top:50px;">
+		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee' />
 		<p>Zoom Level 2</p>
-	</span> 
-	<span class='zoom' id='ex3'style="top:30px;">
-		<img src='daisy.jpg' width='555' height='320' alt='Daisy on the Ohoopee'/>
+	</span>
+	<span class='zoom' id='ex3' style="top:30px;">
+		<img src='daisy.jpg' width='555' height='320' alt='Daisy on the Ohoopee' />
 		<p>Magnify to 1.5</p>
 	</span>
-	<span class='zoom' id='ex4'style="top:30px;">
-		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
+	<span class='zoom' id='ex4' style="top:30px;">
+		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee' />
 		<p>Click to toggle</p>
 	</span>
-	<span class='zoom' id='ex5'style="top:30px;">
-		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee'/>
+	<span class='zoom' id='ex5' style="top:30px;">
+		<img src='roxy.jpg' width='290' height='320' alt='Roxy on the Ohoopee' />
 		<p>On Grab</p>
-	</span> 
+	</span>
 </body>
+
 </html>
